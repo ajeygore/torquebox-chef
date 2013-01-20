@@ -11,7 +11,7 @@
       "cluster_name": "sample_role_1",
       "configuration_file" : "standalone-ha.xml"
     },
-    "services": {
+    "app1": {
       "redis_host": "redis host if you want to override ",
       "mongoid_host": "mongoid host if you want to override"
     }
