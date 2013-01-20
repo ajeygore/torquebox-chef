@@ -1,0 +1,24 @@
+#!/bin/bash
+latest_url="<%="http://#{@knob_server}/#{@project_environment}/#{@application_name}/latest.txt"%>"
+latest_build_number=$(wget -O- -q $latest_url);
+echo $latest_build_number;
+last_build_number="";
+last_build_file="<%="#{@app_root}/#{@application_name}"%>_lastbuild.txt"
+if [ -f $last_build_file ]; then
+  last_build_number=$(cat $last_build_file);
+fi
+
+if [ "$last_build_number" == "$latest_build_number" ];then
+  echo "latest build deployed";
+  echo "latest : $latest_build_number";
+  echo "last   : $last_build_number";
+else
+  echo "found new build..."
+  echo "stopping torquebox..."
+  /sbin/service jboss-as-standalone stop;
+  echo "calling deploy script as torquebox user...";
+  su - torquebox -c "/bin/bash /opt/torquebox/apps/<%=@application_name%>_knob_deploy.sh $latest_build_number";
+  echo  "starting torquebox...";
+  /sbin/service jboss-as-standalone start;
+  echo $latest_build_number > $last_build_file;
+fi

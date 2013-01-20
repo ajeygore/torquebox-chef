@@ -1,0 +1,18 @@
+{
+  "name": "sample_role_1_proxy",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "mod_cluster": {
+      "cluster_name": "sample_role_1"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[mod_cluster]"
+  ],
+  "env_run_lists": {
+  }
+}

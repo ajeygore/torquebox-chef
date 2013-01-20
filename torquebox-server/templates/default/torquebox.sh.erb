@@ -1,0 +1,31 @@
+export JBOSS_USER=<%=@jboss_user%>
+export TORQUEBOX_HOME=<%=@torquebox_home%>
+export JBOSS_PIDFILE=<%=@jboss_pidfile%>
+export JBOSS_CONSOLE_LOG=<%=@jboss_console_log%>
+export JBOSS_CONFIG=<%=@jboss_config%>
+export JRUBY_OPTS=<%=@jruby_opts%>
+export JRUBY_HOME=$TORQUEBOX_HOME/jruby
+export JBOSS_HOME=$TORQUEBOX_HOME/jboss
+
+export PATH=$JBOSS_HOME/bin:$JRUBY_HOME/bin:$PATH
+
+. <%=@java_environment_file%>
+
+export RACK_ENV=production
+
+
+
+<% if !node['app1'].nil? and node['app1']['enabled'] == true %>
+#app1 configuration
+#
+export MONGOID_HOST=<%=node[:services][:mongoid_host]%>
+export REDIS_HOST=<%=node[:services][:redis_host]%>
+
+<% end %>
+
+<% if !node['app2'].nil? and node['app2']['enabled'] == true %>
+#app2 configuration 
+#
+export APP1_HOST=<%=node[:app2][:app1_host]%>
+
+<% end %>

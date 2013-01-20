@@ -1,0 +1,10 @@
+#!/bin/bash
+#deploy a service knob file
+cd <%=@app_root%>
+rm <%=@application_name%>-$1.knob
+wget "<%="http://#{@knob_server}/#{@project_environment}/#{@application_name}/#{@application_name}-$1.knob"%>"
+
+#deploy  
+rm <%=@application_name%>
+ln -s <%=@application_name%>-$1.knob <%=@application_name%>
+torquebox deploy <%=@application_name%>

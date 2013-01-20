@@ -1,0 +1,8 @@
+projects:
+<% node[:projects].each do |k,v| %>
+  <%=k%>:
+    name: <%=k%>
+    url: '<%=v["url"]%>'
+<%end%>
+
+project_environments: [<%= node[:project_environments].join(',')  %>]

@@ -1,0 +1,26 @@
+{
+  "name": "sample_role_1",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "torquebox": {
+      "role": "sample_role_1",
+      "clustered": true,
+      "cluster_name": "sample_role_1",
+      "configuration_file" : "standalone-ha.xml"
+    },
+    "services": {
+      "redis_host": "redis host if you want to override ",
+      "mongoid_host": "mongoid host if you want to override"
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[torquebox-server]",
+    "recipe[app1]"
+  ],
+  "env_run_lists": {
+  }
+}

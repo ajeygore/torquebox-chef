@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#      :application_name => application_name,
+#      :user_name => params[:user_name],
+#      :password => params[:password],
+#      :server => params[:server],
+#      :port => params[:port],
+#      :project_code => params[:project_code]
+
+
+rm <%=@application_name%>-$1.knob
+#sample teamcity link wget http://<%=@server%>:<%=@port%>/httpAuth/repository/download/<%=@project_code%>/.lastSuccessful/<%=@application_name%>-$1.knob
+wget http://<%=@server%>/<%=@application_name%>-$1.knob
+
+
+#deploy  
+rm <%=@application_name%>
+ln -s <%=@application_name%>-$1.knob <%=@application_name%>
+torquebox deploy <%=@application_name%>
