@@ -1,10 +1,8 @@
-#
+# contributors - ajey gore
 # Cookbook Name:: app
 # Recipe:: default
 #
-# Copyright 2013, y2cf digital media pvt ltd
-#
-# All rights reserved - Do Not Redistribute
+# Copyright 2013, 
 #
 #
 include_recipe 'torquebox-server'

@@ -1,4 +1,4 @@
-maintainer       "y2cf digital media pvt ltd"
+maintainer       "ajey gore"
 maintainer_email "ajeygore@gmail.com"
 license          "All rights reserved"
 description      "Installs/Configures mod_cluster"

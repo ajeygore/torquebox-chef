@@ -2,9 +2,8 @@
 # Cookbook Name:: mod_cluster
 # Recipe:: default
 #
-# Copyright 2012, y2cf digital media pvt ltd
+# Copyright 2012 
 #
-# All rights reserved - Do Not Redistribute
 #
 #
 include_recipe 'httpd'

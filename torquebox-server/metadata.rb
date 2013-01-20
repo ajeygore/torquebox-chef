@@ -1,4 +1,4 @@
-maintainer       "y2cf digital media pvt ltd"
+maintainer       "ajey gore"
 maintainer_email "ajeygore@gmail.com"
 license          "GPL"
 description      "Installs/Configures torquebox-server"
